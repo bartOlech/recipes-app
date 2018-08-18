@@ -1,0 +1,264 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+.app-header{
+  background-color:#090126;
+  height:70px;
+  font-family: cursive sans-serif;
+  padding:0px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-header h1{
+  margin-top:0px;
+  color:#FFFFFF;
+}
+/* component: Ingradiens*/
+.ingredients{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ingredients h4{
+  font-size:20px;
+  padding-top:10px;
+  font-family: serif sans-serif;
+  font-weight: 300;
+}
+.selectIngradient .ingradient{
+  background-repeat: no-repeat;
+  width:48px;
+  height:48px;
+  margin-left:1px;
+  border:1px solid #FFFFFF;
+}
+@keyframes app{
+  0%{background-color:rgba(9, 1, 38, 0.1);}
+  50%{background-color:rgba(5, 1, 22, 0.2);}
+  100%{background-color:rgba(9, 1, 38, 0.1);}
+}
+.selectIngradient .ingradientClick{
+  background-repeat: no-repeat;
+  width:48px;
+  height:48px;
+  margin-left:1px;
+  background-color:rgba(9, 1, 38, 0.1);
+  border:1px solid rgba(9, 1, 38, 0.3);
+  border-radius:3px;
+  animation-name: app;
+  animation-duration: 300ms;
+  cursor: pointer;
+}
+.selectIngradient .ingradientClick:first-child{
+  margin-left:0px;
+}
+.selectIngradient .ingradient:first-child{
+  margin-left:0px;
+}
+.selectIngradient .ingradient:hover{
+  background-color:rgba(9, 1, 38, 0.123);
+  border:1px solid rgba(9, 1, 38, 0.027);
+  border-radius:3px;
+  cursor: pointer;
+}
+.selectIngradient{
+  display:flex;
+  flex-wrap: wrap;
+}
+.selectIngradient .apple{
+  background-image:url('./image/ingradiens/apple.png')
+}
+.selectIngradient .cucumber{
+  background-image:url('./image/ingradiens/cucumber.png')
+}
+.selectIngradient .tomato{
+  background-image:url('./image/ingradiens/tomato.png')
+}
+.selectIngradient .milk{
+  background-image:url('./image/ingradiens/milk.png')
+}
+.selectIngradient .meat{
+  background-image:url('./image/ingradiens/meat.png')
+}
+.selectIngradient .fish{
+  background-image:url('./image/ingradiens/fish.png')
+}
+
+hr{
+  margin-top:15px;
+  width:100%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+/* component: MainComponent*/
+.recipesList{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+}
+.meal{
+  display:flex;
+  height:150px;
+  margin-bottom:9px;
+  max-width:500px;
+  max-height:361px;
+  margin-left:25px;
+  border-bottom-left-radius:10px;
+  border-top-left-radius:10px;
+  cursor: pointer;
+  
+}
+.meal:hover{
+  background-color: rgba(0, 0, 0, 0.2)
+}
+.meal .mealPhoto{
+  width:50vw;
+  border:0px solid white;
+  border-bottom-left-radius:10px;
+  border-top-left-radius:10px;
+  
+}
+.mealName{
+  width:40vw;
+}
+.mealName{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:rgba(231, 231, 231, 0.6);
+}
+.mealName p{
+  text-align:center;
+  margin-top:-1px;
+  font-size:15px;
+  padding-left:6px;
+  padding-right:6px;
+}
+.mealName h3{
+  font-size:20px;
+  font-family: serif sans-serif;
+  font-weight: 400;
+  padding-left:6px;
+  padding-right:6px;
+  text-align:center;
+  padding-top:-5px;
+}
+.cakePhoto{
+  background-image:url('./image/recipes/small/appleCake.jpg');
+  background-size: cover;
+}
+.appleJuicePhoto{
+  background-image:url('./image/recipes/small/appleJuice.jpg');
+  background-size: cover;
+}
+.burgerPhoto{
+  background-image:url('./image/recipes/small/burger.jpeg');
+  background-size: cover;
+}
+.burritoPhoto{
+  background-image:url('./image/recipes/small/burrito.jpg');
+  background-size: cover;
+}
+.fishPhoto{
+  background-image:url('./image/recipes/small/fish.jpg');
+  background-size: cover;
+}
+.steakPhoto{
+  background-image:url('./image/recipes/small/grillMeat.jpg');
+  background-size: cover;
+}
+.iceCreamPhoto{
+  background-image:url('./image/recipes/small/iceCream.jpg');
+  background-size: cover;
+}
+.meatSaladPhoto{
+  background-image:url('./image/recipes/small/meatSalad.jpg');
+  background-size: cover;
+}
+.saladPhoto{
+  background-image:url('./image/recipes/small/salad.jpg');
+  background-size: cover;
+}
+.salmonPhoto{
+  background-image:url('./image/recipes/small/salmon.jpg');
+  background-size: cover;
+}
+.milkShakePhoto{
+  background-image:url('./image/recipes/small/shake.jpg');
+  background-size: cover;
+}
+
+.fullTextRecipe{
+  justify-content: center;
+}
+
+.textRecipe{
+  width:80vw;
+  position: absolute;
+  min-width: 200px;
+  top:75px;
+  background-color:rgba(255, 255, 255, 0.884);
+  padding-right:20px;
+  border-radius:5px;
+  border:1px solid rgb(236, 226, 226);
+  box-shadow: 0 8px 15px -5px #333;
+  animation-name:recipeAnime;
+  animation-duration:500ms;
+
+}
+.leftTextRecipe ,.rightTextRecipe{
+  font-family: cursive sans-serif;
+  text-align: center;
+}
+.rightTextRecipe li{
+  text-align: left;
+}
+.leftTextRecipe button{
+  float:right;
+}
+
+.show{
+  display:inline;
+}
+.hide{
+  display:none;
+}
+.closeButton {
+  display: block;
+  right: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-image: url('./image/close.png');
+  background-size:cover;
+  float:right;
+}
+
+.rightTextRecipe ul li{
+  margin-bottom:15px;
+}
+ul{
+  list-style-position: inside;
+}
+@media screen and (min-width:600px){
+  .meal{
+    margin:auto;
+  }
+  .textRecipe{
+    width:60vw;
+  }
+}
+
+
+
+/*poprawić style po najechaniu
+sprawdzić mechanikę wyboru
+DAC ROZMAZANE TLO PO WYSWIETLENIU PRZEPISU*/
