@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../index.css';
-import Ingradiens from './Ingradients';
+import Ingradients from './Ingradients';
 import Cake from './meals/Cake';
 import Burger from './meals/Burger';
 import Burrito from './meals/Burrito';
@@ -14,12 +14,11 @@ import Steak from './meals/Steak';
 import AppleJuice from './meals/AppleJuice';
 
 
-
 class MainContent extends Component{
     constructor(props){
         super(props);
         this.state={
-            ingradiens:[],
+            foodIngs:[],
             appleCake:false,
             appleJuice:false,
             burger:false,
@@ -42,24 +41,38 @@ class MainContent extends Component{
             visibilitySalad:false,
             visibilitySalmon:false,
             visibilitySteak:false,
+            isVisibleMeals:true,
+            //produkty w tablicy poniżej muszą być alfabetycznie!!!
+            appleCakeArray:['apple'],
+            appleJuiceArray:['apple'],
+            burgerArray:['cucumber', 'meat', 'tomato'],
+            burritoArray:['meat', 'toamto'],
+            fishArray:['fish'],
+            grillMeatArray:['meat'],
+            iceCreamArray:['milk'],
+            meatSaladArray:['cucumber', 'meat', 'tomato'],
+            saladArray:['cucumber', 'tomato'],
+            salmonArray:['apple', 'fish'],
+            shakeArray:['milk'],
 
         }
-    }
+    }   
 
     apple=(e)=>{
-        const{ingradiens}=this.state;
+        const{foodIngs, appleCakeArray, appleJuiceArray, burgerArray, burritoArray, fishArray, grillMeatArray, iceCreamArray, meatSaladArray, saladArray, salmonArray, shakeArray,}=this.state;
         const ingradien='apple';
-        if(ingradiens.indexOf(ingradien)!==-1){
-          let index = ingradiens.indexOf(ingradien);
+        if(foodIngs.indexOf(ingradien)!==-1){
+          let index = foodIngs.indexOf(ingradien);
           if (index > -1) {
-            ingradiens.splice(index, 1);
+            foodIngs.splice(index, 1);
           }
         }else{
-            if(ingradiens.indexOf(ingradien)===-1){ingradiens.push(ingradien)}
+            if(foodIngs.indexOf(ingradien)===-1){foodIngs.push(ingradien)}
             this.setState({
-                ingradiens,
+                foodIngs,
             })
         }
+
         this.setState({
             appleCake:false,
             appleJuice:false,
@@ -73,13 +86,75 @@ class MainContent extends Component{
             salmon:false,
             steak:false,
         })
-        ingradiens.indexOf('apple')!==-1?this.setState({appleCake:true, appleJuice:true}):this.setState({appleCake:false, appleJuice:false})
-        ingradiens.indexOf('cucumber')!==-1?this.setState({burger:true, salad:true, appleCake:false, appleJuice:false}):this.setState({burger:false, salad:false})
-        ingradiens.indexOf('tomato')!==-1?this.setState({burger:false, meatSalad:false, appleCake:false, appleJuice:false}):this.setState({burger:false, meatSalad:false})
-        ingradiens.indexOf('milk')!==-1?this.setState({iceCream:false, milkShake:false, appleCake:false, appleJuice:false}):this.setState({iceCream:false, milkShake:false})
-        ingradiens.indexOf('meat')!==-1?this.setState({burger:false, burrito:false, appleCake:false, appleJuice:false}):this.setState({burger:false, burrito:false, steak:false, meatSalad:false})
-        ingradiens.indexOf('fish')!==-1?this.setState({fish:false, salmon:false, appleCake:false, appleJuice:false}):this.setState({fish:false, salmon:false})
-        if(ingradiens.length>=4){this.setState({
+        foodIngs.sort();
+
+    if( foodIngs.length === appleCakeArray.length && foodIngs.every((value, index) => value ===         appleCakeArray[index] )){
+       this.setState({
+        appleCake:true,
+       })  
+    }
+
+    if( foodIngs.length === appleJuiceArray.length && foodIngs.every((value, index) => value ===         appleJuiceArray[index] )){
+        this.setState({
+            appleJuice:true
+        })  
+     }
+
+     if( foodIngs.length === burgerArray.length && foodIngs.every((value, index) => value ===         burgerArray[index] )){
+        this.setState({
+            burger:true
+        })  
+     }
+
+     if( foodIngs.length === burritoArray.length && foodIngs.every((value, index) => value ===         burritoArray[index] )){
+        this.setState({
+            burrito:true
+        })  
+     }
+
+     if( foodIngs.length === fishArray.length && foodIngs.every((value, index) => value ===fishArray[index] )){
+        this.setState({
+            fish:true
+        })  
+     }
+
+     if( foodIngs.length === grillMeatArray.length && foodIngs.every((value, index) => value ===         grillMeatArray[index] )){
+        this.setState({
+            steak:true
+        })  
+     }
+
+     if( foodIngs.length === iceCreamArray.length && foodIngs.every((value, index) => value ===         iceCreamArray[index] )){
+        this.setState({
+            iceCream:true
+        })  
+     }
+
+     if( foodIngs.length === meatSaladArray.length && foodIngs.every((value, index) => value ===         meatSaladArray[index] )){
+        this.setState({
+            meatSalad:true
+        })  
+     }
+
+     if( foodIngs.length === saladArray.length && foodIngs.every((value, index) => value ===         saladArray[index] )){
+        this.setState({
+            salad:true
+        })  
+     }
+
+     if( foodIngs.length === salmonArray.length && foodIngs.every((value, index) => value ===         salmonArray[index] )){
+        this.setState({
+            salmon:true
+        })  
+     }
+
+     if( foodIngs.length === shakeArray.length && foodIngs.every((value, index) => value ===         shakeArray[index] )){
+        this.setState({
+            milkShake:true
+        })  
+     }
+
+        if(foodIngs.length>=4){this.setState({
             appleCake:false,
             appleJuice:false,
             burger:false,
@@ -95,19 +170,20 @@ class MainContent extends Component{
     }
 
     cucumber=(e)=>{
-        const{ingradiens}=this.state;
+        const{foodIngs, appleCakeArray, appleJuiceArray, burgerArray, burritoArray, fishArray, grillMeatArray, iceCreamArray, meatSaladArray, saladArray, salmonArray, shakeArray}=this.state;
         const ingradien='cucumber';
-        if(ingradiens.indexOf(ingradien)!==-1){
-          let index = ingradiens.indexOf(ingradien);
+        if(foodIngs.indexOf(ingradien)!==-1){
+          let index = foodIngs.indexOf(ingradien);
           if (index > -1) {
-            ingradiens.splice(index, 1);
+            foodIngs.splice(index, 1);
           }
         }else{
-            if(ingradiens.indexOf(ingradien)===-1){ingradiens.push(ingradien)}
+            if(foodIngs.indexOf(ingradien)===-1){foodIngs.push(ingradien)}
             this.setState({
-                ingradiens,
+                foodIngs,
             })
         }
+
         this.setState({
             appleCake:false,
             appleJuice:false,
@@ -121,40 +197,89 @@ class MainContent extends Component{
             salmon:false,
             steak:false,
         })
-        ingradiens.indexOf('apple')!==-1?this.setState({salad:false}):this.setState({appleCake:false, appleJuice:false})
-        ingradiens.indexOf('cucumber')!==-1?this.setState({burger:true, salad:true, appleCake:false, appleJuice:false}):this.setState({burger:false, salad:false})
-        ingradiens.indexOf('tomato')!==-1?this.setState({burger:true, meatSalad:true}):this.setState({burger:false, meatSalad:false})
-        ingradiens.indexOf('milk')!==-1?this.setState({iceCream:false, milkShake:false, salad:false}):this.setState({iceCream:false, milkShake:false})
-        ingradiens.indexOf('meat')!==-1?this.setState({burger:true, burrito:true, steak:true, meatSalad:true}):this.setState({burger:false, burrito:false, steak:false, meatSalad:false})
-        ingradiens.indexOf('fish')!==-1?this.setState({fish:true, salmon:true}):this.setState({fish:false, salmon:false})
-        if(ingradiens.length>=4){this.setState({
-            appleCake:false,
-            appleJuice:false,
-            burger:false,
-            burrito:false,
-            fish:false,
-            iceCream:false,
-            meatSalad:false,
-            milkShake:false,
-            salad:false,
-            salmon:false,
-            steak:false,
-        })}
+        foodIngs.sort();
+
+    if( foodIngs.length === appleCakeArray.length && foodIngs.every((value, index) => value ===         appleCakeArray[index] )){
+       this.setState({
+        appleCake:true
+       })  
+    }
+
+    if( foodIngs.length === appleJuiceArray.length && foodIngs.every((value, index) => value ===         appleJuiceArray[index] )){
+        this.setState({
+            appleJuice:true
+        })  
+     }
+
+     if( foodIngs.length === burgerArray.length && foodIngs.every((value, index) => value ===         burgerArray[index] )){
+        this.setState({
+            burger:true
+        })  
+     }
+
+     if( foodIngs.length === burritoArray.length && foodIngs.every((value, index) => value ===         burritoArray[index] )){
+        this.setState({
+            burrito:true
+        })  
+     }
+
+     if( foodIngs.length === fishArray.length && foodIngs.every((value, index) => value ===fishArray[index] )){
+        this.setState({
+            fish:true
+        })  
+     }
+
+     if( foodIngs.length === grillMeatArray.length && foodIngs.every((value, index) => value ===         grillMeatArray[index] )){
+        this.setState({
+            steak:true
+        })  
+     }
+
+     if( foodIngs.length === iceCreamArray.length && foodIngs.every((value, index) => value ===         iceCreamArray[index] )){
+        this.setState({
+            iceCream:true
+        })  
+     }
+
+     if( foodIngs.length === meatSaladArray.length && foodIngs.every((value, index) => value ===         meatSaladArray[index] )){
+        this.setState({
+            meatSalad:true
+        })  
+     }
+
+     if( foodIngs.length === saladArray.length && foodIngs.every((value, index) => value ===         saladArray[index] )){
+        this.setState({
+            salad:true
+        })  
+     }
+
+     if( foodIngs.length === salmonArray.length && foodIngs.every((value, index) => value ===         salmonArray[index] )){
+        this.setState({
+            salmon:true
+        })  
+     }
+
+     if( foodIngs.length === shakeArray.length && foodIngs.every((value, index) => value ===         shakeArray[index] )){
+        this.setState({
+            milkShake:true
+        })  
+     }
     }
     tomato=(e)=>{
-        const{ingradiens}=this.state;
+        const{foodIngs, appleCakeArray, appleJuiceArray, burgerArray, burritoArray, fishArray, grillMeatArray, iceCreamArray, meatSaladArray, saladArray, salmonArray, shakeArray}=this.state;
         const ingradien='tomato';
-        if(ingradiens.indexOf(ingradien)!==-1){
-          let index = ingradiens.indexOf(ingradien);
+        if(foodIngs.indexOf(ingradien)!==-1){
+          let index = foodIngs.indexOf(ingradien);
           if (index > -1) {
-            ingradiens.splice(index, 1);
+            foodIngs.splice(index, 1);
           }
         }else{
-            if(ingradiens.indexOf(ingradien)===-1){ingradiens.push(ingradien)}
+            if(foodIngs.indexOf(ingradien)===-1){foodIngs.push(ingradien)}
             this.setState({
-                ingradiens,
+                foodIngs,
             })
         }
+
         this.setState({
             appleCake:false,
             appleJuice:false,
@@ -168,38 +293,86 @@ class MainContent extends Component{
             salmon:false,
             steak:false,
         })
-        ingradiens.indexOf('milk')!==-1?this.setState({iceCream:true, milkShake:true}):this.setState({iceCream:false, milkShake:false})
-        ingradiens.indexOf('apple')!==-1?this.setState({appleCake:false, appleJuice:false}):this.setState({appleCake:false, appleJuice:false})
-        ingradiens.indexOf('cucumber')!==-1?this.setState({burger:false, salad:false, iceCream:false, milkShake:false}):this.setState({burger:false, salad:false})
-        ingradiens.indexOf('tomato')!==-1?this.setState({burger:true, meatSalad:true, iceCream:false, milkShake:false}):this.setState({burger:false, meatSalad:false})
-        ingradiens.indexOf('meat')!==-1?this.setState({burger:false, burrito:false, steak:false, meatSalad:false, iceCream:false, milkShake:false}):this.setState({burger:false, burrito:false, steak:false, meatSalad:false})
-        ingradiens.indexOf('fish')!==-1?this.setState({fish:false, salmon:false, iceCream:false, milkShake:false}):this.setState({fish:false, salmon:false})
-        if(ingradiens.length>=4){this.setState({
-            appleCake:false,
-            appleJuice:false,
-            burger:false,
-            burrito:false,
-            fish:false,
-            iceCream:false,
-            meatSalad:false,
-            milkShake:false,
-            salad:false,
-            salmon:false,
-            steak:false,
-        })}
+        foodIngs.sort();
+
+    if( foodIngs.length === appleCakeArray.length && foodIngs.every((value, index) => value ===         appleCakeArray[index] )){
+       this.setState({
+        appleCake:true
+       })  
+    }
+
+    if( foodIngs.length === appleJuiceArray.length && foodIngs.every((value, index) => value ===         appleJuiceArray[index] )){
+        this.setState({
+            appleJuice:true
+        })  
+     }
+
+     if( foodIngs.length === burgerArray.length && foodIngs.every((value, index) => value ===         burgerArray[index] )){
+        this.setState({
+            burger:true
+        })  
+     }
+
+     if( foodIngs.length === burritoArray.length && foodIngs.every((value, index) => value ===         burritoArray[index] )){
+        this.setState({
+            burrito:true
+        })  
+     }
+
+     if( foodIngs.length === fishArray.length && foodIngs.every((value, index) => value ===fishArray[index] )){
+        this.setState({
+            fish:true
+        })  
+     }
+
+     if( foodIngs.length === grillMeatArray.length && foodIngs.every((value, index) => value ===         grillMeatArray[index] )){
+        this.setState({
+            steak:true
+        })  
+     }
+
+     if( foodIngs.length === iceCreamArray.length && foodIngs.every((value, index) => value ===         iceCreamArray[index] )){
+        this.setState({
+            iceCream:true
+        })  
+     }
+
+     if( foodIngs.length === meatSaladArray.length && foodIngs.every((value, index) => value ===         meatSaladArray[index] )){
+        this.setState({
+            meatSalad:true
+        })  
+     }
+
+     if( foodIngs.length === saladArray.length && foodIngs.every((value, index) => value ===         saladArray[index] )){
+        this.setState({
+            salad:true
+        })  
+     }
+
+     if( foodIngs.length === salmonArray.length && foodIngs.every((value, index) => value ===         salmonArray[index] )){
+        this.setState({
+            salmon:true
+        })  
+     }
+
+     if( foodIngs.length === shakeArray.length && foodIngs.every((value, index) => value ===         shakeArray[index] )){
+        this.setState({
+            milkShake:true
+        })  
+     }
     }
     milk=(e)=>{
-        const{ingradiens}=this.state;
+        const{foodIngs, appleCakeArray, appleJuiceArray, burgerArray, burritoArray, fishArray, grillMeatArray, iceCreamArray, meatSaladArray, saladArray, salmonArray, shakeArray}=this.state;
         const ingradien='milk';
-        if(ingradiens.indexOf(ingradien)!==-1){
-          let index = ingradiens.indexOf(ingradien);
+        if(foodIngs.indexOf(ingradien)!==-1){
+          let index = foodIngs.indexOf(ingradien);
           if (index > -1) {
-            ingradiens.splice(index, 1);
+            foodIngs.splice(index, 1);
           }
         }else{
-            if(ingradiens.indexOf(ingradien)===-1){ingradiens.push(ingradien)}
+            if(foodIngs.indexOf(ingradien)===-1){foodIngs.push(ingradien)}
             this.setState({
-                ingradiens,
+                foodIngs,
             })
         }
         this.setState({
@@ -215,60 +388,89 @@ class MainContent extends Component{
             salmon:false,
             steak:false,
         })
-        ingradiens.indexOf('milk')!==-1?this.setState({iceCream:true, milkShake:true}):this.setState({iceCream:false, milkShake:false})
-        ingradiens.indexOf('apple')!==-1?this.setState({appleCake:false, appleJuice:false}):this.setState({appleCake:false, appleJuice:false})
-        ingradiens.indexOf('cucumber')!==-1?this.setState({burger:false, salad:false, iceCream:false, milkShake:false}):this.setState({burger:false, salad:false})
-        ingradiens.indexOf('tomato')!==-1?this.setState({burger:true, meatSalad:true, iceCream:false, milkShake:false}):this.setState({burger:false, meatSalad:false})
-        ingradiens.indexOf('meat')!==-1?this.setState({burger:false, burrito:false, steak:false, meatSalad:false, iceCream:false, milkShake:false}):this.setState({burger:false, burrito:false, steak:false, meatSalad:false})
-        ingradiens.indexOf('fish')!==-1?this.setState({fish:false, salmon:false, iceCream:false, milkShake:false}):this.setState({fish:false, salmon:false})
-        if(ingradiens.length>=4){this.setState({
-            appleCake:false,
-            appleJuice:false,
-            burger:false,
-            burrito:false,
-            fish:false,
-            iceCream:false,
-            meatSalad:false,
-            milkShake:false,
-            salad:false,
-            salmon:false,
-            steak:false,
-        })}
+        foodIngs.sort();
+
+    if( foodIngs.length === appleCakeArray.length && foodIngs.every((value, index) => value ===         appleCakeArray[index] )){
+       this.setState({
+        appleCake:true
+       })  
+    }
+
+    if( foodIngs.length === appleJuiceArray.length && foodIngs.every((value, index) => value ===         appleJuiceArray[index] )){
+        this.setState({
+            appleJuice:true
+        })  
+     }
+
+     if( foodIngs.length === burgerArray.length && foodIngs.every((value, index) => value ===         burgerArray[index] )){
+        this.setState({
+            burger:true
+        })  
+     }
+
+     if( foodIngs.length === burritoArray.length && foodIngs.every((value, index) => value ===         burritoArray[index] )){
+        this.setState({
+            burrito:true
+        })  
+     }
+
+     if( foodIngs.length === fishArray.length && foodIngs.every((value, index) => value ===fishArray[index] )){
+        this.setState({
+            fish:true
+        })  
+     }
+
+     if( foodIngs.length === grillMeatArray.length && foodIngs.every((value, index) => value ===         grillMeatArray[index] )){
+        this.setState({
+            steak:true
+        })  
+     }
+
+     if( foodIngs.length === iceCreamArray.length && foodIngs.every((value, index) => value ===         iceCreamArray[index] )){
+        this.setState({
+            iceCream:true
+        })  
+     }
+
+     if( foodIngs.length === meatSaladArray.length && foodIngs.every((value, index) => value ===         meatSaladArray[index] )){
+        this.setState({
+            meatSalad:true
+        })  
+     }
+
+     if( foodIngs.length === saladArray.length && foodIngs.every((value, index) => value ===         saladArray[index] )){
+        this.setState({
+            salad:true
+        })  
+     }
+
+     if( foodIngs.length === salmonArray.length && foodIngs.every((value, index) => value ===         salmonArray[index] )){
+        this.setState({
+            salmon:true
+        })  
+     }
+
+     if( foodIngs.length === shakeArray.length && foodIngs.every((value, index) => value ===         shakeArray[index] )){
+        this.setState({
+            milkShake:true
+        })  
+     }
     }
     meat=(e)=>{
-        const{ingradiens}=this.state;
+        const{foodIngs, appleCakeArray, appleJuiceArray, burgerArray, burritoArray, fishArray, grillMeatArray, iceCreamArray, meatSaladArray, saladArray, salmonArray, shakeArray}=this.state;
         const ingradien='meat';
-        if(ingradiens.indexOf(ingradien)!==-1){
-          let index = ingradiens.indexOf(ingradien);
+        if(foodIngs.indexOf(ingradien)!==-1){
+          let index = foodIngs.indexOf(ingradien);
           if (index > -1) {
-            ingradiens.splice(index, 1);
+            foodIngs.splice(index, 1);
           }
         }else{
-            if(ingradiens.indexOf(ingradien)===-1){ingradiens.push(ingradien)}
+            if(foodIngs.indexOf(ingradien)===-1){foodIngs.push(ingradien)}
             this.setState({
-                ingradiens,
+                foodIngs,
             })
         }
         this.setState({
-            appleCake:false,
-            appleJuice:false,
-            burger:true,
-            burrito:false,
-            fish:false,
-            iceCream:false,
-            meatSalad:false,
-            milkShake:false,
-            salad:false,
-            salmon:false,
-            steak:true,
-        })
-        ingradiens.indexOf('meat')!==-1?this.setState({burger:true, burrito:true, steak:true, meatSalad:true}):this.setState({burger:false, burrito:false, steak:false, meatSalad:false})
-        ingradiens.indexOf('apple')!==-1?this.setState({appleCake:false, appleJuice:false, burger:false, burrito:false, meatSalad:false,}):this.setState({appleCake:false, appleJuice:false})
-        ingradiens.indexOf('cucumber')!==-1?this.setState({burger:true, salad:true}):
-        ingradiens.indexOf('tomato')!==-1?this.setState({burger:true, meatSalad:true}):
-        ingradiens.indexOf('milk')!==-1?this.setState({iceCream:false, milkShake:false, burrito:false}):this.setState({iceCream:false, milkShake:false})
-        ingradiens.indexOf('fish')!==-1?this.setState({fish:true, salmon:true}):this.setState({fish:false, salmon:false})
-        if(ingradiens.length>=4){this.setState({
             appleCake:false,
             appleJuice:false,
             burger:false,
@@ -280,20 +482,87 @@ class MainContent extends Component{
             salad:false,
             salmon:false,
             steak:false,
-        })}
+        })
+        foodIngs.sort();
+
+    if( foodIngs.length === appleCakeArray.length && foodIngs.every((value, index) => value ===         appleCakeArray[index] )){
+       this.setState({
+        appleCake:true
+       })  
+    }
+
+    if( foodIngs.length === appleJuiceArray.length && foodIngs.every((value, index) => value ===         appleJuiceArray[index] )){
+        this.setState({
+            appleJuice:true
+        })  
+     }
+
+     if( foodIngs.length === burgerArray.length && foodIngs.every((value, index) => value ===         burgerArray[index] )){
+        this.setState({
+            burger:true
+        })  
+     }
+
+     if( foodIngs.length === burritoArray.length && foodIngs.every((value, index) => value ===         burritoArray[index] )){
+        this.setState({
+            burrito:true
+        })  
+     }
+
+     if( foodIngs.length === fishArray.length && foodIngs.every((value, index) => value ===fishArray[index] )){
+        this.setState({
+            fish:true
+        })  
+     }
+
+     if( foodIngs.length === grillMeatArray.length && foodIngs.every((value, index) => value ===         grillMeatArray[index] )){
+        this.setState({
+            steak:true
+        })  
+     }
+
+     if( foodIngs.length === iceCreamArray.length && foodIngs.every((value, index) => value ===         iceCreamArray[index] )){
+        this.setState({
+            iceCream:true
+        })  
+     }
+
+     if( foodIngs.length === meatSaladArray.length && foodIngs.every((value, index) => value ===         meatSaladArray[index] )){
+        this.setState({
+            meatSalad:true
+        })  
+     }
+
+     if( foodIngs.length === saladArray.length && foodIngs.every((value, index) => value ===         saladArray[index] )){
+        this.setState({
+            salad:true
+        })  
+     }
+
+     if( foodIngs.length === salmonArray.length && foodIngs.every((value, index) => value ===         salmonArray[index] )){
+        this.setState({
+            salmon:true
+        })  
+     }
+
+     if( foodIngs.length === shakeArray.length && foodIngs.every((value, index) => value ===         shakeArray[index] )){
+        this.setState({
+            milkShake:true
+        })  
+     }
     }
     fish=(e)=>{
-        const{ingradiens}=this.state;
+        const{foodIngs, appleCakeArray, appleJuiceArray, burgerArray, burritoArray, fishArray, grillMeatArray, iceCreamArray, meatSaladArray, saladArray, salmonArray, shakeArray}=this.state;
         const ingradien='fish';
-        if(ingradiens.indexOf(ingradien)!==-1){
-          let index = ingradiens.indexOf(ingradien);
+        if(foodIngs.indexOf(ingradien)!==-1){
+          let index = foodIngs.indexOf(ingradien);
           if (index > -1) {
-            ingradiens.splice(index, 1);
+            foodIngs.splice(index, 1);
           }
         }else{
-            if(ingradiens.indexOf(ingradien)===-1){ingradiens.push(ingradien)}
+            if(foodIngs.indexOf(ingradien)===-1){foodIngs.push(ingradien)}
             this.setState({
-                ingradiens,
+                foodIngs,
             })
         }
         this.setState({
@@ -309,25 +578,73 @@ class MainContent extends Component{
             salmon:false,
             steak:false,
         })
-        ingradiens.indexOf('fish')!==-1?this.setState({fish:true, salmon:true}):this.setState({fish:false, salmon:false})
-        if(ingradiens.indexOf('apple')!==-1&&ingradiens.indexOf('milk')===-1){this.setState({appleCake:true, appleJuice:true, salmon:false, fish:false})}else {this.setState({appleCake:false, appleJuice:false})}
-        ingradiens.indexOf('cucumber')!==-1?this.setState({burger:true, salad:true}):this.setState({burger:false, salad:false})   
-        ingradiens.indexOf('tomato')!==-1?this.setState({burger:true, salad:true, salmon:false}):this.setState({burger:false, salad:false})
-        ingradiens.indexOf('milk')!==-1?this.setState({iceCream:false, milkShake:false, fish:false, salmon:false}):this.setState({iceCream:false, milkShake:false})
-        ingradiens.indexOf('meat')!==-1?this.setState({burger:true, burrito:true, steak:true, meatSalad:true}):this.setState({burger:false, burrito:false, steak:false, meatSalad:false})
-        if(ingradiens.length>=4){this.setState({
-            appleCake:false,
-            appleJuice:false,
-            burger:false,
-            burrito:false,
-            fish:false,
-            iceCream:false,
-            meatSalad:false,
-            milkShake:false,
-            salad:false,
-            salmon:false,
-            steak:false,
-        })}
+        foodIngs.sort();
+
+    if( foodIngs.length === appleCakeArray.length && foodIngs.every((value, index) => value ===         appleCakeArray[index] )){
+       this.setState({
+        appleCake:true
+       })  
+    }
+
+    if( foodIngs.length === appleJuiceArray.length && foodIngs.every((value, index) => value ===         appleJuiceArray[index] )){
+        this.setState({
+            appleJuice:true
+        })  
+     }
+
+     if( foodIngs.length === burgerArray.length && foodIngs.every((value, index) => value ===         burgerArray[index] )){
+        this.setState({
+            burger:true
+        })  
+     }
+
+     if( foodIngs.length === burritoArray.length && foodIngs.every((value, index) => value ===         burritoArray[index] )){
+        this.setState({
+            burrito:true
+        })  
+     }
+
+     if( foodIngs.length === fishArray.length && foodIngs.every((value, index) => value ===fishArray[index] )){
+        this.setState({
+            fish:true
+        })  
+     }
+
+     if( foodIngs.length === grillMeatArray.length && foodIngs.every((value, index) => value ===         grillMeatArray[index] )){
+        this.setState({
+            steak:true
+        })  
+     }
+
+     if( foodIngs.length === iceCreamArray.length && foodIngs.every((value, index) => value ===         iceCreamArray[index] )){
+        this.setState({
+            iceCream:true
+        })  
+     }
+
+     if( foodIngs.length === meatSaladArray.length && foodIngs.every((value, index) => value ===         meatSaladArray[index] )){
+        this.setState({
+            meatSalad:true
+        })  
+     }
+
+     if( foodIngs.length === saladArray.length && foodIngs.every((value, index) => value ===         saladArray[index] )){
+        this.setState({
+            salad:true
+        })  
+     }
+
+     if( foodIngs.length === salmonArray.length && foodIngs.every((value, index) => value ===         salmonArray[index] )){
+        this.setState({
+            salmon:true
+        })  
+     }
+
+     if( foodIngs.length === shakeArray.length && foodIngs.every((value, index) => value ===         shakeArray[index] )){
+        this.setState({
+            milkShake:true
+        })  
+     }
     }
     appleJuiceRecipe=(e)=>{
         this.setState({
@@ -444,16 +761,20 @@ class MainContent extends Component{
 
     render(){
         const{appleCake, appleJuice, burger, burrito, fish, iceCream, meatSalad, milkShake, salad, salmon, steak}=this.state;
+        
         return(
             <div>
-                <Ingradiens
+                
+                <Ingradients
                     apple={this.apple}
                     cucumber={this.cucumber}
                     tomato={this.tomato}
                     milk={this.milk}
                     meat={this.meat}
                     fish={this.fish}
+                    isVisibleMeal={this.state.isVisibleMeals}
                 />
+                <div className={this.state.isVisibleMeals?'no-recipe-hide':'no-recipe'}><div className='sad-face'></div><h3 className='sad-face-text'>Brak przepisu dla danych składników</h3></div>
                 {appleCake?<Cake scrollStepInPx="50" delayInMs="16.66" cakeRecipe={this.cakeRecipe}/>:null}
                 {appleJuice?<AppleJuice scrollStepInPx="50" delayInMs="16.66" appleJuiceRecipe={this.appleJuiceRecipe}/>:null}
                 {burger?<Burger scrollStepInPx="50" delayInMs="16.66" burgerRecipe={this.burgerRecipe}/>:null}

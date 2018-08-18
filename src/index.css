@@ -4,6 +4,13 @@ body {
   font-family: sans-serif;
   overflow-x: hidden;
 }
+.icon{
+  width:50px;
+  height:50px;
+  margin-right:20px;
+  margin-top:-15px;
+  background-image: url('./image/icon.png');
+}
 .app-header{
   background-color:#090126;
   height:70px;
@@ -13,11 +20,40 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .app-header h1{
-  margin-top:0px;
+  margin-top:10px;
   color:#FFFFFF;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
-/* component: Ingradiens*/
+/* component: ingradients*/
+.no-recipe-hide{
+  display:none;
+}
+.no-recipe{
+  position: absolute;
+  top:230px;
+  left:0;
+  right:0;
+  flex-direction: column;
+  align-items: center;
+  display:flex;
+}
+
+.sad-face{
+  width:150px;
+  height:150px;
+  background-image: url('./image/icon-sad.png');
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sad-face-text{
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  margin-top:-20px;
+}
 .ingredients{
   display:flex;
   flex-direction: column;
@@ -27,7 +63,7 @@ body {
 .ingredients h4{
   font-size:20px;
   padding-top:10px;
-  font-family: serif sans-serif;
+  font-family: monospace;
   font-weight: 300;
 }
 .selectIngradient .ingradient{
@@ -70,23 +106,39 @@ body {
   display:flex;
   flex-wrap: wrap;
 }
+@keyframes apple{
+  from{margin-right:180px}
+  to{margin-right:0px;}
+}
+@keyframes cucumber{
+  from{margin-right:160px}
+  to{margin-right:0px;}
+}
+@keyframes meat{
+  from{margin-left:160px}
+  to{margin-left:0px;}
+}
+@keyframes fish{
+  from{margin-left:180px}
+  to{margin-left:0px;}
+}
 .selectIngradient .apple{
-  background-image:url('./image/ingradiens/apple.png')
+  background-image:url('./image/ingradients/apple.png');
 }
 .selectIngradient .cucumber{
-  background-image:url('./image/ingradiens/cucumber.png')
+  background-image:url('./image/ingradients/cucumber.png');
 }
 .selectIngradient .tomato{
-  background-image:url('./image/ingradiens/tomato.png')
+  background-image:url('./image/ingradients/tomato.png');
 }
 .selectIngradient .milk{
-  background-image:url('./image/ingradiens/milk.png')
+  background-image:url('./image/ingradients/milk.png');
 }
 .selectIngradient .meat{
-  background-image:url('./image/ingradiens/meat.png')
+  background-image:url('./image/ingradients/meat.png');
 }
 .selectIngradient .fish{
-  background-image:url('./image/ingradiens/fish.png')
+  background-image:url('./image/ingradients/fish.png');
 }
 
 hr{
@@ -96,11 +148,16 @@ hr{
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
+@keyframes show{
+  from {margin-top:-400px}
+    to {margin-top:0px;}
+}
 /* component: MainComponent*/
 .recipesList{
   display:flex;
   align-items: center;
   flex-direction: column;
+
 }
 .meal{
   display:flex;
@@ -112,6 +169,8 @@ hr{
   border-bottom-left-radius:10px;
   border-top-left-radius:10px;
   cursor: pointer;
+  animation-name: show;
+  animation-duration: 1s;
   
 }
 .meal:hover{
@@ -197,7 +256,10 @@ hr{
 .fullTextRecipe{
   justify-content: center;
 }
-
+@keyframes textRecipe{
+  0%{opacity:0}
+  100%{opacity:1}
+}
 .textRecipe{
   width:80vw;
   position: absolute;
@@ -208,8 +270,8 @@ hr{
   border-radius:5px;
   border:1px solid rgb(236, 226, 226);
   box-shadow: 0 8px 15px -5px #333;
-  animation-name:recipeAnime;
-  animation-duration:500ms;
+  animation-name:textRecipe;
+  animation-duration:1200ms;
 
 }
 .leftTextRecipe ,.rightTextRecipe{
@@ -240,6 +302,11 @@ hr{
   background-image: url('./image/close.png');
   background-size:cover;
   float:right;
+  border:2px solid rgba(255, 255, 255, 0.836);
+}
+.closeButton:hover{
+  transition-duration: 0.5s;
+  border:2px solid rgba(8, 1, 36, 0.836);
 }
 
 .rightTextRecipe ul li{
@@ -255,10 +322,38 @@ ul{
   .textRecipe{
     width:60vw;
   }
+  .ingredients h4{
+    font-size:30px;
+  }
+}
+@media screen and (max-width:800px){
+  .app-header h1{
+    font-size: 1.5em;
+    margin-top:0;
+  }
+  .icon{
+    margin-right:20px;
+    margin-top:-20px;
+  }
+}
+@media screen and (min-width:970px){
+  .selectIngradient .apple{
+    animation-name: apple;
+    animation-duration: 1.5s;
+  }
+  .selectIngradient .cucumber{
+    animation-name: cucumber;
+    animation-duration: 1.5s;
+  }
+  .selectIngradient .meat{
+    animation-name: meat;
+    animation-duration: 1.5s;
+  }
+  .selectIngradient .fish{
+    animation-name: fish;
+    animation-duration: 1.5s;
+  }
 }
 
 
-
-/*poprawić style po najechaniu
-sprawdzić mechanikę wyboru
-DAC ROZMAZANE TLO PO WYSWIETLENIU PRZEPISU*/
+/*DAC ROZMAZANE TLO PO WYSWIETLENIU PRZEPISU*/

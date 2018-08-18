@@ -10,7 +10,7 @@ class Ingradients extends Component{
             tomato:false,
             milk:false,
             meat:false,
-            fish:false
+            fish:false,
         }
     }
     apple=(e)=>{

@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header className='app-header'><h1>Strefa przepisów</h1></header>
+        <header className='app-header'><div className='icon'></div><h1>Strefa przepisów</h1></header>
         
         <MainContent/>
       </div>
