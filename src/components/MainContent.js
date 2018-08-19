@@ -41,7 +41,6 @@ class MainContent extends Component{
             visibilitySalad:false,
             visibilitySalmon:false,
             visibilitySteak:false,
-            isVisibleMeals:true,
             //produkty w tablicy poniżej muszą być alfabetycznie!!!
             appleCakeArray:['apple'],
             appleJuiceArray:['apple'],
@@ -88,10 +87,14 @@ class MainContent extends Component{
         })
         foodIngs.sort();
 
+      
+
+
     if( foodIngs.length === appleCakeArray.length && foodIngs.every((value, index) => value ===         appleCakeArray[index] )){
        this.setState({
         appleCake:true,
        })  
+       
     }
 
     if( foodIngs.length === appleJuiceArray.length && foodIngs.every((value, index) => value ===         appleJuiceArray[index] )){
@@ -772,9 +775,16 @@ class MainContent extends Component{
                     milk={this.milk}
                     meat={this.meat}
                     fish={this.fish}
-                    isVisibleMeal={this.state.isVisibleMeals}
                 />
-                <div className={this.state.isVisibleMeals?'no-recipe-hide':'no-recipe'}><div className='sad-face'></div><h3 className='sad-face-text'>Brak przepisu dla danych składników</h3></div>
+
+
+
+               <div className={appleCake || appleJuice || burger || burrito || fish || iceCream || meatSalad || milkShake || salad || salmon || steak || this.state.foodIngs.length===0?'no-recipe-hide':'no-recipe'}><div className='sad-face'></div><h3 className='sad-face-text'>Brak przepisu dla danych składników</h3></div>
+
+
+
+
+
                 {appleCake?<Cake scrollStepInPx="50" delayInMs="16.66" cakeRecipe={this.cakeRecipe}/>:null}
                 {appleJuice?<AppleJuice scrollStepInPx="50" delayInMs="16.66" appleJuiceRecipe={this.appleJuiceRecipe}/>:null}
                 {burger?<Burger scrollStepInPx="50" delayInMs="16.66" burgerRecipe={this.burgerRecipe}/>:null}
