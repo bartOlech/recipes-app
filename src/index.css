@@ -38,6 +38,7 @@ body {
   flex-direction: column;
   align-items: center;
   display:flex;
+  animation:textRecipe 1s;
 }
 
 .sad-face{
@@ -162,7 +163,7 @@ hr{
 .meal{
   display:flex;
   height:150px;
-  margin-bottom:9px;
+  margin-top:2px;
   max-width:500px;
   max-height:361px;
   margin-left:25px;
@@ -185,8 +186,6 @@ hr{
 }
 .mealName{
   width:40vw;
-}
-.mealName{
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -275,7 +274,7 @@ hr{
 
 }
 .leftTextRecipe ,.rightTextRecipe{
-  font-family: cursive sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: center;
 }
 .rightTextRecipe li{
@@ -356,4 +355,4 @@ ul{
 }
 
 
-/*DAC ROZMAZANE TLO PO WYSWIETLENIU PRZEPISU*/
+/*ROZMAZANE TLO PO WYSWIETLENIU PRZEPISU*/

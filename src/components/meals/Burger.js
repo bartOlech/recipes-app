@@ -21,9 +21,12 @@ class Burger extends Component{
         
       }
     render(){
+        const style={
+            marginBottom:"3px"
+        }
         return(
             <div>
-               <div onClick={()=>{
+               <div style={style} onClick={()=>{
                     this.props.burgerRecipe()
                     this.scrollToTop()
                 }}  className='meal'>

@@ -21,9 +21,12 @@ class Cake extends Component{
         
       }
     render(){
+        const style={
+            marginBottom:"3px"
+        }
         return(
             <div>
-                 <div onClick={()=>{
+                 <div style={style} onClick={()=>{
                     this.props.cakeRecipe()
                     this.scrollToTop()
                 }}  className='meal'>

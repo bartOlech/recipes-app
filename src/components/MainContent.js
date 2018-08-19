@@ -53,7 +53,6 @@ class MainContent extends Component{
             saladArray:['cucumber', 'tomato'],
             salmonArray:['apple', 'fish'],
             shakeArray:['milk'],
-
         }
     }   
 
