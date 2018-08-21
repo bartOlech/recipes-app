@@ -51,7 +51,7 @@ class MainContent extends Component{
             iceCreamArray:['milk'],
             meatSaladArray:['cucumber', 'meat', 'tomato'],
             saladArray:['cucumber', 'tomato'],
-            salmonArray:['apple', 'fish'],
+            salmonArray:['fish'],
             shakeArray:['milk'],
         }
     }   
