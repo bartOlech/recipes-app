@@ -4,292 +4,381 @@ body {
   font-family: sans-serif;
   overflow-x: hidden;
 }
-.icon{
-  width:50px;
-  height:50px;
-  margin-right:20px;
-  margin-top:-15px;
+
+.icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  margin-top: -15px;
   background-image: url('./image/icon.png');
 }
-.app-header{
-  background-color:#090126;
-  height:70px;
+
+.app-header {
+  background-color: #090126;
+  height: 70px;
   font-family: cursive sans-serif;
-  padding:0px;
-  display:flex;
+  padding: 0px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.app-header h1{
-  margin-top:10px;
-  color:#FFFFFF;
+.app-header h1 {
+  margin-top: 10px;
+  color: #FFFFFF;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 /* component: ingradients*/
-.no-recipe-hide{
-  display:none;
-}
-.no-recipe{
-  position: absolute;
-  top:230px;
-  left:0;
-  right:0;
-  flex-direction: column;
-  align-items: center;
-  display:flex;
-  animation:textRecipe 1s;
+.no-recipe-hide {
+  display: none;
 }
 
-.sad-face{
-  width:150px;
-  height:150px;
+.no-recipe {
+  position: absolute;
+  top: 230px;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  animation: textRecipe 1s;
+}
+
+.sad-face {
+  width: 150px;
+  height: 150px;
   background-image: url('./image/icon-sad.png');
   background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
 }
-.sad-face-text{
+
+.sad-face-text {
   font-size: 20px;
   font-family: 'Courier New', Courier, monospace;
   text-align: center;
-  margin-top:-20px;
+  margin-top: -20px;
 }
-.ingredients{
-  display:flex;
+
+.ingredients {
+  display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
 }
-.ingredients h4{
-  font-size:20px;
-  padding-top:10px;
+
+.ingredients h4 {
+  font-size: 20px;
+  padding-top: 10px;
   font-family: monospace;
   font-weight: 300;
 }
-.selectIngradient .ingradient{
+
+.selectIngradient .ingradient {
   background-repeat: no-repeat;
-  width:48px;
-  height:48px;
-  margin-left:1px;
-  border:1px solid #FFFFFF;
+  width: 48px;
+  height: 48px;
+  margin-left: 1px;
+  border: 1px solid #FFFFFF;
 }
-@keyframes app{
-  0%{background-color:rgba(9, 1, 38, 0.1);}
-  50%{background-color:rgba(5, 1, 22, 0.2);}
-  100%{background-color:rgba(9, 1, 38, 0.1);}
+
+@keyframes app {
+  0% {
+    background-color: rgba(9, 1, 38, 0.1);
+  }
+
+  50% {
+    background-color: rgba(5, 1, 22, 0.2);
+  }
+
+  100% {
+    background-color: rgba(9, 1, 38, 0.1);
+  }
 }
-.selectIngradient .ingradientClick{
+
+.selectIngradient .ingradientClick {
   background-repeat: no-repeat;
-  width:48px;
-  height:48px;
-  margin-left:1px;
-  background-color:rgba(9, 1, 38, 0.1);
-  border:1px solid rgba(9, 1, 38, 0.3);
-  border-radius:3px;
+  width: 48px;
+  height: 48px;
+  margin-left: 1px;
+  background-color: rgba(9, 1, 38, 0.1);
+  border: 1px solid rgba(9, 1, 38, 0.3);
+  border-radius: 3px;
   animation-name: app;
   animation-duration: 300ms;
   cursor: pointer;
 }
-.selectIngradient .ingradientClick:first-child{
-  margin-left:0px;
-}
-.selectIngradient .ingradient:first-child{
-  margin-left:0px;
-}
-.selectIngradient .ingradient:hover{
-  background-color:rgba(9, 1, 38, 0.123);
-  border:1px solid rgba(9, 1, 38, 0.027);
-  border-radius:3px;
-  cursor: pointer;
-}
-.selectIngradient{
-  display:flex;
-  flex-wrap: wrap;
-}
-@keyframes apple{
-  from{margin-right:180px}
-  to{margin-right:0px;}
-}
-@keyframes cucumber{
-  from{margin-right:160px}
-  to{margin-right:0px;}
-}
-@keyframes meat{
-  from{margin-left:160px}
-  to{margin-left:0px;}
-}
-@keyframes fish{
-  from{margin-left:180px}
-  to{margin-left:0px;}
-}
-.selectIngradient .apple{
-  background-image:url('./image/ingradients/apple.png');
-}
-.selectIngradient .cucumber{
-  background-image:url('./image/ingradients/cucumber.png');
-}
-.selectIngradient .tomato{
-  background-image:url('./image/ingradients/tomato.png');
-}
-.selectIngradient .milk{
-  background-image:url('./image/ingradients/milk.png');
-}
-.selectIngradient .meat{
-  background-image:url('./image/ingradients/meat.png');
-}
-.selectIngradient .fish{
-  background-image:url('./image/ingradients/fish.png');
+
+.selectIngradient .ingradientClick:first-child {
+  margin-left: 0px;
 }
 
-hr{
-  margin-top:15px;
-  width:100%;
+.selectIngradient .ingradient:first-child {
+  margin-left: 0px;
+}
+
+.selectIngradient .ingradient:hover {
+  background-color: rgba(9, 1, 38, 0.123);
+  border: 1px solid rgba(9, 1, 38, 0.027);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.selectIngradient {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@keyframes apple {
+  from {
+    margin-right: 180px
+  }
+
+  to {
+    margin-right: 0px;
+  }
+}
+
+@keyframes cucumber {
+  from {
+    margin-right: 160px
+  }
+
+  to {
+    margin-right: 0px;
+  }
+}
+
+@keyframes meat {
+  from {
+    margin-left: 160px
+  }
+
+  to {
+    margin-left: 0px;
+  }
+}
+
+@keyframes fish {
+  from {
+    margin-left: 180px
+  }
+
+  to {
+    margin-left: 0px;
+  }
+}
+
+.selectIngradient .apple {
+  background-image: url('./image/ingradients/apple.png');
+}
+
+.selectIngradient .cucumber {
+  background-image: url('./image/ingradients/cucumber.png');
+}
+
+.selectIngradient .tomato {
+  background-image: url('./image/ingradients/tomato.png');
+}
+
+.selectIngradient .milk {
+  background-image: url('./image/ingradients/milk.png');
+}
+
+.selectIngradient .meat {
+  background-image: url('./image/ingradients/meat.png');
+}
+
+.selectIngradient .fish {
+  background-image: url('./image/ingradients/fish.png');
+}
+
+hr {
+  margin-top: 15px;
+  width: 100%;
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
-@keyframes show{
-  from {margin-top:-400px}
-    to {margin-top:0px;}
+
+@keyframes show {
+  from {
+    margin-top: -400px
+  }
+
+  to {
+    margin-top: 0px;
+  }
 }
+
 /* component: MainComponent*/
-.recipesList{
-  display:flex;
+.recipesList {
+  display: flex;
   align-items: center;
   flex-direction: column;
 
 }
-.meal{
-  display:flex;
-  height:150px;
-  margin-top:2px;
-  max-width:500px;
-  max-height:361px;
-  margin-left:25px;
-  border-bottom-left-radius:10px;
-  border-top-left-radius:10px;
+
+.meal {
+  display: flex;
+  height: 150px;
+  margin-top: 2px;
+  max-width: 500px;
+  max-height: 361px;
+  margin-left: 25px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
   cursor: pointer;
   animation-name: show;
   animation-duration: 1s;
-  
+
 }
-.meal:hover{
+
+.meal:hover {
   background-color: rgba(0, 0, 0, 0.2)
 }
-.meal .mealPhoto{
-  width:50vw;
-  border:0px solid white;
-  border-bottom-left-radius:10px;
-  border-top-left-radius:10px;
-  
+
+.meal .mealPhoto {
+  width: 50vw;
+  border: 0px solid white;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+
 }
-.mealName{
-  width:40vw;
-  display:flex;
+
+.mealName {
+  width: 40vw;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:rgba(231, 231, 231, 0.6);
+  background-color: rgba(231, 231, 231, 0.6);
 }
-.mealName p{
-  text-align:center;
-  margin-top:-1px;
-  font-size:15px;
-  padding-left:6px;
-  padding-right:6px;
+
+.mealName p {
+  text-align: center;
+  margin-top: -1px;
+  font-size: 15px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
-.mealName h3{
-  font-size:20px;
+
+.mealName h3 {
+  font-size: 20px;
   font-family: serif sans-serif;
   font-weight: 400;
-  padding-left:6px;
-  padding-right:6px;
-  text-align:center;
-  padding-top:-5px;
+  padding-left: 6px;
+  padding-right: 6px;
+  text-align: center;
+  padding-top: -5px;
 }
-.cakePhoto{
-  background-image:url('./image/recipes/small/appleCake.jpg');
-  background-size: cover;
-}
-.appleJuicePhoto{
-  background-image:url('./image/recipes/small/appleJuice.jpg');
-  background-size: cover;
-}
-.burgerPhoto{
-  background-image:url('./image/recipes/small/burger.jpeg');
-  background-size: cover;
-}
-.burritoPhoto{
-  background-image:url('./image/recipes/small/burrito.jpg');
-  background-size: cover;
-}
-.fishPhoto{
-  background-image:url('./image/recipes/small/fish.jpg');
-  background-size: cover;
-}
-.steakPhoto{
-  background-image:url('./image/recipes/small/grillMeat.jpg');
-  background-size: cover;
-}
-.iceCreamPhoto{
-  background-image:url('./image/recipes/small/iceCream.jpg');
-  background-size: cover;
-}
-.meatSaladPhoto{
-  background-image:url('./image/recipes/small/meatSalad.jpg');
-  background-size: cover;
-}
-.saladPhoto{
-  background-image:url('./image/recipes/small/salad.jpg');
-  background-size: cover;
-}
-.salmonPhoto{
-  background-image:url('./image/recipes/small/salmon.jpg');
-  background-size: cover;
-}
-.milkShakePhoto{
-  background-image:url('./image/recipes/small/shake.jpg');
+
+.cakePhoto {
+  background-image: url('./image/recipes/small/appleCake.jpg');
   background-size: cover;
 }
 
-.fullTextRecipe{
+.appleJuicePhoto {
+  background-image: url('./image/recipes/small/appleJuice.jpg');
+  background-size: cover;
+}
+
+.burgerPhoto {
+  background-image: url('./image/recipes/small/burger.jpeg');
+  background-size: cover;
+}
+
+.burritoPhoto {
+  background-image: url('./image/recipes/small/burrito.jpg');
+  background-size: cover;
+}
+
+.fishPhoto {
+  background-image: url('./image/recipes/small/fish.jpg');
+  background-size: cover;
+}
+
+.steakPhoto {
+  background-image: url('./image/recipes/small/grillMeat.jpg');
+  background-size: cover;
+}
+
+.iceCreamPhoto {
+  background-image: url('./image/recipes/small/iceCream.jpg');
+  background-size: cover;
+}
+
+.meatSaladPhoto {
+  background-image: url('./image/recipes/small/meatSalad.jpg');
+  background-size: cover;
+}
+
+.saladPhoto {
+  background-image: url('./image/recipes/small/salad.jpg');
+  background-size: cover;
+}
+
+.salmonPhoto {
+  background-image: url('./image/recipes/small/salmon.jpg');
+  background-size: cover;
+}
+
+.milkShakePhoto {
+  background-image: url('./image/recipes/small/shake.jpg');
+  background-size: cover;
+}
+
+.fullTextRecipe {
   justify-content: center;
 }
-@keyframes textRecipe{
-  0%{opacity:0}
-  100%{opacity:1}
+
+@keyframes textRecipe {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
 }
-.textRecipe{
-  width:80vw;
+
+.textRecipe {
+  width: 80vw;
   position: absolute;
   min-width: 200px;
-  top:75px;
-  background-color:rgba(255, 255, 255, 0.884);
-  padding-right:20px;
-  border-radius:5px;
-  border:1px solid rgb(236, 226, 226);
+  top: 75px;
+  background-color: rgba(255, 255, 255, 0.884);
+  padding-right: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(236, 226, 226);
   box-shadow: 0 8px 15px -5px #333;
-  animation-name:textRecipe;
-  animation-duration:1200ms;
+  animation-name: textRecipe;
+  animation-duration: 1200ms;
 
 }
-.leftTextRecipe ,.rightTextRecipe{
+
+.leftTextRecipe,
+.rightTextRecipe {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: center;
 }
-.rightTextRecipe li{
+
+.rightTextRecipe li {
   text-align: left;
 }
-.leftTextRecipe button{
-  float:right;
+
+.leftTextRecipe button {
+  float: right;
 }
 
-.show{
-  display:inline;
+.show {
+  display: inline;
 }
-.hide{
-  display:none;
+
+.hide {
+  display: none;
 }
+
 .closeButton {
   display: block;
   right: 0;
@@ -299,56 +388,67 @@ hr{
   cursor: pointer;
   border-radius: 50%;
   background-image: url('./image/close.png');
-  background-size:cover;
-  float:right;
-  border:2px solid rgba(255, 255, 255, 0.836);
-}
-.closeButton:hover{
-  transition-duration: 0.5s;
-  border:2px solid rgba(8, 1, 36, 0.836);
+  background-size: cover;
+  float: right;
+  border: 2px solid rgba(255, 255, 255, 0.836);
 }
 
-.rightTextRecipe ul li{
-  margin-bottom:15px;
+.closeButton:hover {
+  transition-duration: 0.5s;
+  border: 2px solid rgba(8, 1, 36, 0.836);
 }
-ul{
+
+.rightTextRecipe ul li {
+  margin-bottom: 15px;
+}
+
+ul {
   list-style-position: inside;
 }
-@media screen and (min-width:600px){
-  .meal{
-    margin:auto;
+
+@media screen and (min-width:600px) {
+  .meal {
+    margin: auto;
   }
-  .textRecipe{
-    width:60vw;
+
+  .textRecipe {
+    width: 60vw;
   }
-  .ingredients h4{
-    font-size:30px;
+
+  .ingredients h4 {
+    font-size: 30px;
   }
 }
-@media screen and (max-width:800px){
-  .app-header h1{
+
+@media screen and (max-width:800px) {
+  .app-header h1 {
     font-size: 1.5em;
-    margin-top:0;
+    margin-top: 0;
   }
-  .icon{
-    margin-right:20px;
-    margin-top:-20px;
+
+  .icon {
+    margin-right: 20px;
+    margin-top: -20px;
   }
 }
-@media screen and (min-width:970px){
-  .selectIngradient .apple{
+
+@media screen and (min-width:970px) {
+  .selectIngradient .apple {
     animation-name: apple;
     animation-duration: 1.5s;
   }
-  .selectIngradient .cucumber{
+
+  .selectIngradient .cucumber {
     animation-name: cucumber;
     animation-duration: 1.5s;
   }
-  .selectIngradient .meat{
+
+  .selectIngradient .meat {
     animation-name: meat;
     animation-duration: 1.5s;
   }
-  .selectIngradient .fish{
+
+  .selectIngradient .fish {
     animation-name: fish;
     animation-duration: 1.5s;
   }
