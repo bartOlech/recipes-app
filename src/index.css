@@ -18,9 +18,15 @@ body {
   height: 70px;
   font-family: cursive sans-serif;
   padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .app-header h1 {
@@ -39,10 +45,18 @@ body {
   top: 230px;
   left: 0;
   right: 0;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  animation: textRecipe 1s;
+  -webkit-animation: textRecipe 1s;
+          animation: textRecipe 1s;
 }
 
 .sad-face {
@@ -62,10 +76,18 @@ body {
 }
 
 .ingredients {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .ingredients h4 {
@@ -81,6 +103,20 @@ body {
   height: 48px;
   margin-left: 1px;
   border: 1px solid #FFFFFF;
+}
+
+@-webkit-keyframes app {
+  0% {
+    background-color: rgba(9, 1, 38, 0.1);
+  }
+
+  50% {
+    background-color: rgba(5, 1, 22, 0.2);
+  }
+
+  100% {
+    background-color: rgba(9, 1, 38, 0.1);
+  }
 }
 
 @keyframes app {
@@ -105,8 +141,10 @@ body {
   background-color: rgba(9, 1, 38, 0.1);
   border: 1px solid rgba(9, 1, 38, 0.3);
   border-radius: 3px;
-  animation-name: app;
-  animation-duration: 300ms;
+  -webkit-animation-name: app;
+          animation-name: app;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
   cursor: pointer;
 }
 
@@ -126,13 +164,36 @@ body {
 }
 
 .selectIngradient {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@-webkit-keyframes apple {
+  from {
+    margin-right: 180px
+  }
+
+  to {
+    margin-right: 0px;
+  }
 }
 
 @keyframes apple {
   from {
     margin-right: 180px
+  }
+
+  to {
+    margin-right: 0px;
+  }
+}
+
+@-webkit-keyframes cucumber {
+  from {
+    margin-right: 160px
   }
 
   to {
@@ -150,9 +211,29 @@ body {
   }
 }
 
+@-webkit-keyframes meat {
+  from {
+    margin-left: 160px
+  }
+
+  to {
+    margin-left: 0px;
+  }
+}
+
 @keyframes meat {
   from {
     margin-left: 160px
+  }
+
+  to {
+    margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes fish {
+  from {
+    margin-left: 180px
   }
 
   to {
@@ -199,7 +280,20 @@ hr {
   width: 100%;
   border: 0;
   height: 1px;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+@-webkit-keyframes show {
+  from {
+    margin-top: -400px
+  }
+
+  to {
+    margin-top: 0px;
+  }
 }
 
 @keyframes show {
@@ -214,13 +308,22 @@ hr {
 
 /* component: MainComponent*/
 .recipesList {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 
 }
 
 .meal {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 150px;
   margin-top: 2px;
@@ -230,8 +333,10 @@ hr {
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
   cursor: pointer;
-  animation-name: show;
-  animation-duration: 1s;
+  -webkit-animation-name: show;
+          animation-name: show;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 
 }
 
@@ -249,9 +354,16 @@ hr {
 
 .mealName {
   width: 40vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: rgba(231, 231, 231, 0.6);
 }
 
@@ -329,7 +441,19 @@ hr {
 }
 
 .fullTextRecipe {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@-webkit-keyframes textRecipe {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
 }
 
 @keyframes textRecipe {
@@ -351,9 +475,12 @@ hr {
   padding-right: 20px;
   border-radius: 5px;
   border: 1px solid rgb(236, 226, 226);
-  box-shadow: 0 8px 15px -5px #333;
-  animation-name: textRecipe;
-  animation-duration: 1200ms;
+  -webkit-box-shadow: 0 8px 15px -5px #333;
+          box-shadow: 0 8px 15px -5px #333;
+  -webkit-animation-name: textRecipe;
+          animation-name: textRecipe;
+  -webkit-animation-duration: 1200ms;
+          animation-duration: 1200ms;
 
 }
 
@@ -394,7 +521,9 @@ hr {
 }
 
 .closeButton:hover {
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+       -o-transition-duration: 0.5s;
+          transition-duration: 0.5s;
   border: 2px solid rgba(8, 1, 36, 0.836);
 }
 
@@ -434,23 +563,31 @@ ul {
 
 @media screen and (min-width:970px) {
   .selectIngradient .apple {
-    animation-name: apple;
-    animation-duration: 1.5s;
+    -webkit-animation-name: apple;
+            animation-name: apple;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
   }
 
   .selectIngradient .cucumber {
-    animation-name: cucumber;
-    animation-duration: 1.5s;
+    -webkit-animation-name: cucumber;
+            animation-name: cucumber;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
   }
 
   .selectIngradient .meat {
-    animation-name: meat;
-    animation-duration: 1.5s;
+    -webkit-animation-name: meat;
+            animation-name: meat;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
   }
 
   .selectIngradient .fish {
-    animation-name: fish;
-    animation-duration: 1.5s;
+    -webkit-animation-name: fish;
+            animation-name: fish;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
   }
 }
 
